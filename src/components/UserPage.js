@@ -27,8 +27,15 @@ function UserPage() {
     const onSubmit=async(event)=>{
         const {data}=await Axios.post('https://assignment-api.piton.com.tr/api/v1/user/login',{password,email});
         const token=data.token;  
-        toast.success("User Signed Up Successfully");
+
+        if (token) {
+            toast.success("User Signed Up Successfully");
+        }else{
+            toast.error("User is not found")
+        }
+
         console.log(token);
+       
     }
 
   return (

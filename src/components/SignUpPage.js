@@ -34,7 +34,11 @@ function SignUpPage() {
     const onSubmit=async(event)=>{
         const {data}=await Axios.post("https://assignment-api.piton.com.tr/api/v1/user/register",{name: name,password: password,email: email});
         const token=data.token;
-        toast.success("User Signed Up Successfully");
+        if (token) {
+            toast.success("User Signed Up Successfully");
+        } else {
+            toast.error("User Signed Up Failed")
+        }
         console.log(token);
     }
 
