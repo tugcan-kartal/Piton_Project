@@ -1,4 +1,5 @@
 import React,{useState} from 'react';
+import {BrowserRouter as Router,useNavigate} from "react-router-dom";
 import Axios from 'axios';
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
@@ -7,6 +8,8 @@ import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
 function UserPage() {
+
+    const navigate=useNavigate();
 
     const [email,setEmail]=useState("");
     const [password,setPassword]=useState("");
@@ -30,6 +33,7 @@ function UserPage() {
 
         if (token) {
             toast.success("User Signed Up Successfully");
+            navigate("/ProductsPage")
         }else{
             toast.error("User is not found")
         }
