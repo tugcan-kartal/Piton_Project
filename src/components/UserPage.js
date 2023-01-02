@@ -32,7 +32,7 @@ function UserPage() {
         const token=data.token;  
 
         if (token) {
-            localStorage.setItem("Token For Products",token);
+            localStorage.setItem("TokenForProducts",token);
             toast.success("User Signed Up Successfully");
             navigate("/ProductsPage")
         }else{
