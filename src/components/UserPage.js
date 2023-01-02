@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import {BrowserRouter as Router,useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import Axios from 'axios';
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
@@ -32,6 +32,7 @@ function UserPage() {
         const token=data.token;  
 
         if (token) {
+            localStorage.setItem("Token For Products",token);
             toast.success("User Signed Up Successfully");
             navigate("/ProductsPage")
         }else{
