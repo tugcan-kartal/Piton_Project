@@ -4,7 +4,9 @@ import Slider from 'react-slick';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import {GrAdd} from "react-icons/gr";
 import {MdRemove} from "react-icons/md";
+import {CgDetailsMore} from "react-icons/cg";
 import { toast } from 'react-hot-toast';
+import { Navigate } from 'react-router-dom';
 
 function NextButton ({ onClick, className }) {
 	return (
@@ -41,13 +43,11 @@ function ProductsPage() {
     },[]);
 
 
-	const addToFavourite=async(event)=>{
+	const addToFavourite=async(productId)=>{
+	
+		console.log(productId)
 
-		console.log(event.currentTarget.parentNode.id);
-
-		const currentIdFromProduct=event.currentTarget.parentNode.id;
-
-		const {data}=await Axios.post("https://assignment-api.piton.com.tr/api/v1/product/like",{productId: currentIdFromProduct},{
+		const {data}=await Axios.post("https://assignment-api.piton.com.tr/api/v1/product/like",{productId: productId},{
 			headers: {
 				"access-token":lastToken
 			}
@@ -62,13 +62,11 @@ function ProductsPage() {
 		}
 	}
 
-	const removeToFavourite=async(event)=>{
+	const removeToFavourite=async(productId)=>{
 
-		console.log(event.currentTarget.parentNode.id);
+		console.log(productId);
 
-		const currentIdFromProduct=event.currentTarget.parentNode.id;
-
-		const {data}=await Axios.post("https://assignment-api.piton.com.tr/api/v1/product/like",{productId: currentIdFromProduct},{
+		const {data}=await Axios.post("https://assignment-api.piton.com.tr/api/v1/product/like",{productId: productId},{
 			headers: {
 				"access-token":lastToken
 			}
@@ -81,6 +79,10 @@ function ProductsPage() {
 		} else {
 			toast.error("Product is not removed")
 		}
+	}
+
+	const showDetails=()=>{
+		Navigate()
 	}
 
 	const settings = {
@@ -133,8 +135,9 @@ function ProductsPage() {
 
 				{allProducts && allProducts.map(product => (
 					<div id={product.id} key={product.id} className="text-center bg-white rounded-large shadow-md relative">
-						<button onClick={removeToFavourite} className='p-2 rounded-full absolute top-0 left-0 text-black bg-gray-200'> <MdRemove /> </button>
-						<button onClick={addToFavourite} className='p-2 rounded-full absolute top-0 right-2 text-black bg-gray-200'> <GrAdd /> </button>
+						<button onClick={()=>removeToFavourite(product.id)} className='p-2 rounded-full absolute top-0 left-0 text-black bg-gray-200'> <MdRemove /> </button>
+						<button onClick={()=>showDetails(product.id)} className='p-2 rounded-full absolute top-0 text-blue-700 bg-gray-200'> <CgDetailsMore /> </button>
+						<button onClick={()=>addToFavourite(product.id)} className='p-2 rounded-full absolute top-0 right-2 text-black bg-gray-200'> <GrAdd /> </button>
 						<img className='w-full scale-75' src='https://www.piton.com.tr/images/banner_image.png'/>
 						<h1 className="font-semibold text-lg">{product.name.slice(0,35)}...</h1>
 						<h1 className="font-bold text-2xl text-blue-700">{product.price} ₺</h1>
