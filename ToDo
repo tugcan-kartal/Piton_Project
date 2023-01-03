@@ -1,12 +1,11 @@
-tokenları locale kaydettikten sonra sil tekrardan çünkü yukarıdaki linkten girerse sadece sıkıntı
-
-slider kullan ürünler için ve ürünlerin üzerine tıklanıonca açıklama yazcak maili oku
-
 slider arası mesafe koy
-
-üzerine tıklandığında o ürün ile alakalı detayların göründüğü bir ekrana
-yönlendirilmelidir.
 
 {data}=await Axios.get(`https://assignment-api.piton.com.tr neden datayı bu şekilde yazıyoruz
 
-showDetails daki component ı üst component a taşı ordaki datayı
+stajyerleri kontrol eden sistem yap
+
+seçilmiş olan id leri kaydet sonra 
+▪ Burada önceki sayfada seçilen ürün bilgileri görüntülenecektir. Projeni GitHub’da
+paylaşmanız beklenmektedir.
+
+bunun dediğini yap

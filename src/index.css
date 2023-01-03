@@ -4,3 +4,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.slick-slide {
+    padding-right: 2vw;
+}

@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react';
 import Axios from 'axios';
 import Slider from 'react-slick';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import {RiLogoutCircleLine} from "react-icons/ri";
 import {GrAdd} from "react-icons/gr";
 import {MdRemove} from "react-icons/md";
 import {CgDetailsMore} from "react-icons/cg";
@@ -90,11 +91,20 @@ function ProductsPage() {
 				"access-token":lastToken
 			}
 		})
+			
+		// console.log(data.product);
 
-		console.log(data);
+		localStorage.setItem("lastProductDetails",JSON.stringify(data.product));
 
-		navigate(`/ProductDetails/${productId}`);
+		navigate(`/ProductDetails`);
 
+	}
+
+	const logOutFromProductsPage=()=>{
+		navigate("/");
+		localStorage.removeItem("TokenForProducts");
+		localStorage.removeItem("lastProductDetails");
+		toast.success("User logged out");
 	}
 
 	const settings = {
@@ -137,13 +147,15 @@ function ProductsPage() {
 
   return (
     
-      <div className='bg-gray-50 h-[100vh]'>
+      <div className='bg-gray-50 h-[100vh] relative'>
+
+		<div onClick={logOutFromProductsPage} className='absolute left-5 top-5 cursor-pointer'> <RiLogoutCircleLine size={30} className="text-blue-800"/> </div>
 
 	  	<h3 className="font-bold text-3xl text-blue-800 text-center pt-16 mb-32">All Products</h3>
 
 		<div className="w-3/4 m-auto">
 			
-			<Slider className='' {...settings}>
+			<Slider className='cursor-grab active:cursor-grabbing' {...settings}>
 
 				{allProducts && allProducts.map(product => (
 					<div id={product.id} key={product.id} className="text-center bg-white rounded-large shadow-md relative">
