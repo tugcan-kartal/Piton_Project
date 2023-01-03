@@ -7,7 +7,6 @@ import {MdRemove} from "react-icons/md";
 import {CgDetailsMore} from "react-icons/cg";
 import { toast } from 'react-hot-toast';
 import {useNavigate} from "react-router-dom";
-import axios from 'axios';
 
 function NextButton ({ onClick, className }) {
 	return (
@@ -85,7 +84,7 @@ function ProductsPage() {
 	}
 
 	const showDetails=async(productId)=>{
-		
+
 		const {data}=await Axios.get(`https://assignment-api.piton.com.tr/api/v1/product/get/${productId}`,{
 			headers:{
 				"access-token":lastToken
@@ -93,6 +92,8 @@ function ProductsPage() {
 		})
 
 		console.log(data);
+
+		navigate(`/ProductDetails/${productId}`);
 
 	}
 
@@ -149,7 +150,7 @@ function ProductsPage() {
 						<button onClick={()=>removeToFavourite(product.id)} className='p-2 rounded-full absolute top-0 left-0 text-black bg-gray-200'> <MdRemove /> </button>
 						<button onClick={()=>showDetails(product.id)} className='p-2 rounded-full absolute top-0 text-blue-700 bg-gray-200'> <CgDetailsMore /> </button>
 						<button onClick={()=>addToFavourite(product.id)} className='p-2 rounded-full absolute top-0 right-2 text-black bg-gray-200'> <GrAdd /> </button>
-						<img className='w-full scale-75' src='https://www.piton.com.tr/images/banner_image.png'/>
+						<img alt='not found' className='w-full scale-75' src='https://www.piton.com.tr/images/banner_image.png'/>
 						<h1 className="font-semibold text-lg">{product.name.slice(0,35)}...</h1>
 						<h1 className="font-bold text-2xl text-blue-700">{product.price} ₺</h1>
 					</div>

@@ -8,3 +8,5 @@ slider arası mesafe koy
 yönlendirilmelidir.
 
 {data}=await Axios.get(`https://assignment-api.piton.com.tr neden datayı bu şekilde yazıyoruz
+
+showDetails daki component ı üst component a taşı ordaki datayı

@@ -49,7 +49,7 @@ function UserPage() {
         <div className='flex flex-col lg:flex-row justify-center items-center gap-x-20'>
 
             <div>
-                <img className='w-48 lg:w-64 rounded-full m-auto mb-8' src='https://scontent.fesb4-1.fna.fbcdn.net/v/t39.30808-6/284286842_7499232800148635_5149172578781055246_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=LTpmG10oqLoAX-CNFzH&_nc_ht=scontent.fesb4-1.fna&oh=00_AfAxWC8Rhdra4SoVauJlVcu1gSBe0Wl9X7BjU12Xkzm-Rg&oe=63B083EC'/>
+                <img alt='not found' className='w-48 lg:w-64 rounded-full m-auto mb-8' src='https://scontent.fesb4-1.fna.fbcdn.net/v/t39.30808-6/284286842_7499232800148635_5149172578781055246_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=LTpmG10oqLoAX-CNFzH&_nc_ht=scontent.fesb4-1.fna&oh=00_AfAxWC8Rhdra4SoVauJlVcu1gSBe0Wl9X7BjU12Xkzm-Rg&oe=63B083EC'/>
                 <div className='text-md lg:text-2xl font-semibold mb-4'>Technology is changing our lives at an irresistible speed.<br /> We use this change to make urban life and living easier.</div>
             </div>
 
