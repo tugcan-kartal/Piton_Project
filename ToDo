@@ -6,3 +6,5 @@ slider arası mesafe koy
 
 üzerine tıklandığında o ürün ile alakalı detayların göründüğü bir ekrana
 yönlendirilmelidir.
+
+{data}=await Axios.get(`https://assignment-api.piton.com.tr neden datayı bu şekilde yazıyoruz

@@ -6,7 +6,8 @@ import {GrAdd} from "react-icons/gr";
 import {MdRemove} from "react-icons/md";
 import {CgDetailsMore} from "react-icons/cg";
 import { toast } from 'react-hot-toast';
-import { Navigate } from 'react-router-dom';
+import {useNavigate} from "react-router-dom";
+import axios from 'axios';
 
 function NextButton ({ onClick, className }) {
 	return (
@@ -24,6 +25,8 @@ function PrevButton ({ onClick, className }) {
 }
 
 function ProductsPage() {
+
+	const navigate=useNavigate();
 
     const [allProducts,setAllProducts]=useState([]);
 
@@ -81,8 +84,16 @@ function ProductsPage() {
 		}
 	}
 
-	const showDetails=()=>{
-		Navigate()
+	const showDetails=async(productId)=>{
+		
+		const {data}=await Axios.get(`https://assignment-api.piton.com.tr/api/v1/product/get/${productId}`,{
+			headers:{
+				"access-token":lastToken
+			}
+		})
+
+		console.log(data);
+
 	}
 
 	const settings = {
