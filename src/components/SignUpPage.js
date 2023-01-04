@@ -129,7 +129,7 @@ function SignUpPage() {
 
                         <div className='w-5/6 border border-b-1 border-gray-300 mt-4 mb-6'></div>
 
-                        <input className='bg-green-500 text-white rounded-lg py-2 w-[300px] font-bold text-center m-auto' type='submit' value='Create New Account'/>
+                        <input className='bg-green-500 text-white rounded-lg py-2 w-[300px] font-bold text-center m-auto cursor-pointer' type='submit' value='Create New Account'/>
 
                     </form>
 

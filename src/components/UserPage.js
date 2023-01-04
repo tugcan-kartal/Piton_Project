@@ -9,6 +9,8 @@ import toast from 'react-hot-toast';
 
 function UserPage() {
 
+    console.log("%c MADE BY TUĞCAN KARTAL 2023", "color:red");
+
     const navigate=useNavigate();
 
     const [email,setEmail]=useState("");
@@ -83,10 +85,10 @@ function UserPage() {
 
                         <div className='w-100 border border-b-1 border-gray-300 mb-8'></div>
 
-                        <input className='bg-blue-700 text-white rounded py-2 font-bold text-center mb-5' type="submit" value="Log In"/>
+                        <input className='bg-blue-700 text-white rounded py-2 font-bold text-center mb-5 cursor-pointer	' type="submit" value="Log In"/>
 
                         <Link to="/SignUpPage">
-                            <input className='bg-green-500 text-white rounded py-2 w-[250px] font-bold text-center m-auto ml-6' type='button' value='Create New Account'/>
+                            <input className='bg-green-500 text-white rounded py-2 w-[250px] font-bold text-center m-auto ml-6 cursor-pointer' type='button' value='Create New Account'/>
                         </Link>
 
                     </form>
