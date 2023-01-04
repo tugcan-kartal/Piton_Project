@@ -1,5 +1,3 @@
-slider arası mesafe koy
-
 {data}=await Axios.get(`https://assignment-api.piton.com.tr neden datayı bu şekilde yazıyoruz
 
 stajyerleri kontrol eden sistem yap
@@ -9,3 +7,5 @@ seçilmiş olan id leri kaydet sonra
 paylaşmanız beklenmektedir.
 
 bunun dediğini yap
+
+localden sakla tokenı yoksa erişebilirler

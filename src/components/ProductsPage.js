@@ -4,10 +4,11 @@ import Slider from 'react-slick';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import {RiLogoutCircleLine} from "react-icons/ri";
 import {GrAdd} from "react-icons/gr";
-import {MdRemove} from "react-icons/md";
+import {MdRemove,MdFavoriteBorder} from "react-icons/md";
 import {CgDetailsMore} from "react-icons/cg";
 import { toast } from 'react-hot-toast';
 import {useNavigate} from "react-router-dom";
+
 
 function NextButton ({ onClick, className }) {
 	return (
@@ -30,6 +31,8 @@ function ProductsPage() {
 
     const [allProducts,setAllProducts]=useState([]);
 
+	const [allFavourites,setAllFavourites]=useState([]);
+
     const lastToken=localStorage.getItem("TokenForProducts");
 
     useEffect(()=>{
@@ -45,10 +48,15 @@ function ProductsPage() {
         });
     },[]);
 
-
 	const addToFavourite=async(productId)=>{
 	
 		console.log(productId)
+
+		allFavourites.push(productId);
+
+		console.log(allFavourites);
+
+		
 
 		const {data}=await Axios.post("https://assignment-api.piton.com.tr/api/v1/product/like",{productId: productId},{
 			headers: {
@@ -69,7 +77,7 @@ function ProductsPage() {
 
 		console.log(productId);
 
-		const {data}=await Axios.post("https://assignment-api.piton.com.tr/api/v1/product/like",{productId: productId},{
+		const {data}=await Axios.post("https://assignment-api.piton.com.tr/api/v1/product/unlike",{productId: productId},{
 			headers: {
 				"access-token":lastToken
 			}
@@ -82,6 +90,14 @@ function ProductsPage() {
 		} else {
 			toast.error("Product is not removed")
 		}
+
+		const indexOfElementToRemove=allFavourites.indexOf(productId);
+		
+		if(indexOfElementToRemove > -1){
+			allFavourites.splice(indexOfElementToRemove,1);
+		}
+
+		console.log(allFavourites);
 	}
 
 	const showDetails=async(productId)=>{
@@ -105,6 +121,11 @@ function ProductsPage() {
 		localStorage.removeItem("TokenForProducts");
 		localStorage.removeItem("lastProductDetails");
 		toast.success("User logged out");
+	}
+
+	const goToFavouritePage=()=>{
+		navigate("/FavouritePage");
+		toast.success("successful");
 	}
 
 	const settings = {
@@ -150,6 +171,7 @@ function ProductsPage() {
       <div className='bg-gray-50 h-[100vh] relative'>
 
 		<div onClick={logOutFromProductsPage} className='absolute left-5 top-5 cursor-pointer'> <RiLogoutCircleLine size={30} className="text-blue-800"/> </div>
+		<div onClick={goToFavouritePage} className="absolute right-5 top-5 cursor-pointer"><MdFavoriteBorder size={30} className="text-blue-800"/></div>
 
 	  	<h3 className="font-bold text-3xl text-blue-800 text-center pt-16 mb-32">All Products</h3>
 
@@ -158,7 +180,7 @@ function ProductsPage() {
 			<Slider className='cursor-grab active:cursor-grabbing' {...settings}>
 
 				{allProducts && allProducts.map(product => (
-					<div id={product.id} key={product.id} className="text-center bg-white rounded-large shadow-md relative">
+					<div key={product.id} className="text-center bg-white rounded-large shadow-md relative">
 						<button onClick={()=>removeToFavourite(product.id)} className='p-2 rounded-full absolute top-0 left-0 text-black bg-gray-200'> <MdRemove /> </button>
 						<button onClick={()=>showDetails(product.id)} className='p-2 rounded-full absolute top-0 text-blue-700 bg-gray-200'> <CgDetailsMore /> </button>
 						<button onClick={()=>addToFavourite(product.id)} className='p-2 rounded-full absolute top-0 right-2 text-black bg-gray-200'> <GrAdd /> </button>
