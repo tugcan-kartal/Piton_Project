@@ -1,10 +1,4 @@
-{data}=await Axios.get(`https://assignment-api.piton.com.tr neden datayı bu şekilde yazıyoruz
-
-stajyerleri kontrol eden sistem yap
-
-seçilmiş olan id leri kaydet sonra 
-▪ Burada önceki sayfada seçilen ürün bilgileri görüntülenecektir. Projeni GitHub’da
-paylaşmanız beklenmektedir.
+SOR BUNU    {data}=await Axios.get(`https://assignment-api.piton.com.tr neden datayı bu şekilde yazıyoruz
 
 bunun dediğini yap
 
