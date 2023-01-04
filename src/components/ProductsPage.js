@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import {RiLogoutCircleLine} from "react-icons/ri";
 import {GrAdd} from "react-icons/gr";
-import {MdRemove,MdFavoriteBorder} from "react-icons/md";
+import {MdRemove,MdFavorite} from "react-icons/md";
 import {CgDetailsMore} from "react-icons/cg";
 import { toast } from 'react-hot-toast';
 import {useNavigate} from "react-router-dom";
@@ -154,7 +154,7 @@ function ProductsPage() {
       <div className='bg-gray-50 h-[100vh] relative'>
 
 		<div onClick={logOutFromProductsPage} className='absolute left-5 top-5 cursor-pointer'> <RiLogoutCircleLine size={30} className="text-blue-800"/> </div>
-		<div onClick={goToFavouritePage} className="absolute right-5 top-5 cursor-pointer"><MdFavoriteBorder size={30} className="text-blue-800"/></div>
+		<div onClick={goToFavouritePage} className="absolute right-5 top-5 cursor-pointer"><MdFavorite size={30} className="text-blue-800"/></div>
 
 	  	<h3 className="font-bold text-3xl text-blue-800 text-center pt-16 mb-32">All Products</h3>
 
@@ -168,7 +168,7 @@ function ProductsPage() {
 						<button onClick={()=>showDetails(product.id)} className='p-2 rounded-full absolute top-0 text-blue-700 bg-gray-200'> <CgDetailsMore /> </button>
 						<button onClick={()=>addToFavourite(product.id)} className='p-2 rounded-full absolute top-0 right-2 text-black bg-gray-200'> <GrAdd /> </button>
 						<img alt='not found' className='w-full scale-75' src='https://www.piton.com.tr/images/banner_image.png'/>
-						<h1 className="font-semibold text-lg">{product.name.slice(0,35)}...</h1>
+						<h1 className="font-semibold text-lg">{product.name.substring(0,35)}...</h1>
 						<h1 className="font-bold text-2xl text-blue-700">{product.price} ₺</h1>
 					</div>
 				))}
