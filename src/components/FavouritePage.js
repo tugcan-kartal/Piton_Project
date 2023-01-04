@@ -13,22 +13,21 @@ function FavouritePage() {
             "access-token":lastToken
           }
         }).then((response)=>{
-            setAllProducts(response.data.products);
-			console.log(response.data.products);
+            setAllProducts(response.data.products.filter((x)=>x.likes===1));
+			      console.log(allProducts);
         }).catch(()=>{
             console.log("Err");
         });
     },[]);
-
     
-    console.log(allProducts.filter((x)=>x.likes===1));
+    // console.log(allProducts.filter((x)=>x.likes===1));
 
   return (
 
     <div className='grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 bg-gray-50'>
         {allProducts && allProducts.map(product => (
             <div key={product.id}> 
-                <img src='' />
+                <img className='max-w-full h-auto' src='https://www.piton.com.tr/images/banner_image.png' />
                 <div>{product.name}</div>
                 <div>{product.price}</div>
             </div>

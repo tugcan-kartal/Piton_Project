@@ -50,14 +50,6 @@ function ProductsPage() {
 
 	const addToFavourite=async(productId)=>{
 	
-		console.log(productId)
-
-		allFavourites.push(productId);
-
-		console.log(allFavourites);
-
-		
-
 		const {data}=await Axios.post("https://assignment-api.piton.com.tr/api/v1/product/like",{productId: productId},{
 			headers: {
 				"access-token":lastToken
@@ -75,8 +67,6 @@ function ProductsPage() {
 
 	const removeToFavourite=async(productId)=>{
 
-		console.log(productId);
-
 		const {data}=await Axios.post("https://assignment-api.piton.com.tr/api/v1/product/unlike",{productId: productId},{
 			headers: {
 				"access-token":lastToken
@@ -91,13 +81,6 @@ function ProductsPage() {
 			toast.error("Product is not removed")
 		}
 
-		const indexOfElementToRemove=allFavourites.indexOf(productId);
-		
-		if(indexOfElementToRemove > -1){
-			allFavourites.splice(indexOfElementToRemove,1);
-		}
-
-		console.log(allFavourites);
 	}
 
 	const showDetails=async(productId)=>{
