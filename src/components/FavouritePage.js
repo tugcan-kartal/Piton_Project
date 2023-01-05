@@ -49,7 +49,7 @@ function FavouritePage() {
           {allProducts && allProducts.map(product => (
               <div className='w-3/4 text-center flex flex-col justify-center items-center bg-white rounded-3xl gap-y-4 mt-5 mb-8 m-auto' key={product.id}> 
                   <div className='font-bold text-md'>{product.name.substring(0,50)}...</div>
-                  <img className='max-w-full h-auto w-2/3' src='https://www.piton.com.tr/images/banner_image.png' />
+                  <img className='max-w-full h-auto w-2/3' src={"https://assignment-api.piton.com.tr" + product.image} />
                   <div className='font-bold text-2xl text-blue-800 '>{product.price}₺</div>
               </div>
           ))}

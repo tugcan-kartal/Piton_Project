@@ -3,3 +3,6 @@ SOR BUNU    {data}=await Axios.get(`https://assignment-api.piton.com.tr neden da
 bunun dediğini yap
 
 localden sakla tokenı yoksa erişebilirler
+
+resim linklerini ekle
+
