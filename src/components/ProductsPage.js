@@ -6,6 +6,7 @@ import {RiLogoutCircleLine} from "react-icons/ri";
 import {GrAdd} from "react-icons/gr";
 import {MdRemove,MdFavorite} from "react-icons/md";
 import {CgDetailsMore} from "react-icons/cg";
+import {AiFillHeart,AiOutlineHeart} from "react-icons/ai";
 import { toast } from 'react-hot-toast';
 import {useNavigate} from "react-router-dom";
 
@@ -166,9 +167,9 @@ function ProductsPage() {
 
 				{allProducts && allProducts.map(product => (
 					<div key={product.id} className="text-center bg-white rounded-large shadow-md relative">
-						<button onClick={()=>removeToFavourite(product.id)} className='p-2 rounded-full absolute top-0 left-0 text-black bg-gray-200'> <MdRemove /> </button>
+						<button onClick={()=>removeToFavourite(product.id)} className='p-2 rounded-full absolute top-0 left-0 text-black bg-gray-200'> <AiOutlineHeart className='text-red-500'/> </button>
 						<button onClick={()=>showDetails(product.id)} className='p-2 rounded-full absolute top-0 text-blue-700 bg-gray-200'> <CgDetailsMore /> </button>
-						<button onClick={()=>addToFavourite(product.id)} className='p-2 rounded-full absolute top-0 right-2 text-black bg-gray-200'> <GrAdd /> </button>
+						<button onClick={()=>addToFavourite(product.id)} className='p-2 rounded-full absolute top-0 right-2 text-black bg-gray-200'> <AiFillHeart className='text-red-500'/> </button>
 						<img alt='not found' className='w-full scale-75 sm:h-[55vh]' src={"https://assignment-api.piton.com.tr"+product.image} />
 						<h1 className="font-semibold text-lg">{product.name.substring(0,25)}...</h1>
 						<h1 className="font-bold text-2xl text-blue-700">{product.price} ₺</h1>
