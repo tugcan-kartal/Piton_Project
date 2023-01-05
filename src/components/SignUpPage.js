@@ -39,11 +39,10 @@ function SignUpPage() {
         } else {
             toast.error("User Signed Up Failed")
         }
-        console.log(token);
     }
 
   return (
-    <div className='bg-gray-200  py-[135px] flex justify-center items-center'>
+    <div className='bg-gray-200 h-[100vh] flex justify-center items-center'>
 
             <div>
 

@@ -7,8 +7,6 @@ function ProductDetails() {
 
   const detailsOfProduct=JSON.parse(localStorage.getItem("lastProductDetails"));
 
-  console.log(detailsOfProduct);
-
   const navigate=useNavigate();
 
   const goBackToProductsPage=()=>{

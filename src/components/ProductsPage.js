@@ -3,8 +3,7 @@ import Axios from 'axios';
 import Slider from 'react-slick';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import {RiLogoutCircleLine} from "react-icons/ri";
-import {GrAdd} from "react-icons/gr";
-import {MdRemove,MdFavorite} from "react-icons/md";
+import {MdFavorite} from "react-icons/md";
 import {CgDetailsMore} from "react-icons/cg";
 import {AiFillHeart,AiOutlineHeart} from "react-icons/ai";
 import { toast } from 'react-hot-toast';
@@ -43,9 +42,8 @@ function ProductsPage() {
           }
         }).then((response)=>{
             setAllProducts(response.data.products);
-			console.log(response.data.products);
-        }).catch(()=>{
-            console.log("Err");
+        }).catch((err)=>{
+            console.log(err);
         });
     },[]);
 
@@ -91,8 +89,6 @@ function ProductsPage() {
 				"access-token":lastToken
 			}
 		})
-			
-		// console.log(data.product);
 
 		localStorage.setItem("lastProductDetails",JSON.stringify(data.product));
 

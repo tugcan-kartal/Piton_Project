@@ -20,10 +20,9 @@ function FavouritePage() {
             const afterFiltered=afterResponse.filter(product=>{
               return product.likes===1;
             })
-            console.log(afterFiltered);
             setAllProducts(afterFiltered);
-        }).catch(()=>{
-            console.log("Err");
+        }).catch((err)=>{
+            console.log(err);
         });
     },[]);
 

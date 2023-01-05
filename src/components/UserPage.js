@@ -7,9 +7,9 @@ import * as yup from "yup";
 import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
-function UserPage() {
+console.log("%c MADE BY TUĞCAN KARTAL 2023", "color:green");
 
-    console.log("%c MADE BY TUĞCAN KARTAL 2023", "color:red");
+function UserPage() {
 
     const navigate=useNavigate();
 
@@ -40,8 +40,6 @@ function UserPage() {
         }else{
             toast.error("User is not found")
         }
-
-        console.log(token);
        
     }
 
@@ -52,7 +50,7 @@ function UserPage() {
 
             <div>
                 <img alt='not found' className='w-48 lg:w-64 rounded-full m-auto mb-8' src='https://www.avansas.com/blog/wp-content/uploads/2022/03/linkedin-nedir-ne-ise-yarar-isletmeler-icin-linkedin-sirket-hesabi-olusturma-ve-silme-1-950x500.jpeg'/>
-                <div className='text-md lg:text-2xl font-semibold mb-4'>Technology is changing our lives at an irresistible speed.<br /> We use this change to make urban life and living easier.</div>
+                <div className='text-md lg:p-0 px-16 lg:text-2xl font-semibold mb-4'>Technology is changing our lives at an irresistible speed.<br /> We use this change to make urban life and living easier.</div>
             </div>
 
             <div>
