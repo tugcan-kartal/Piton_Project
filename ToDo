@@ -2,6 +2,6 @@ SOR BUNU    {data}=await Axios.get(`https://assignment-api.piton.com.tr neden da
 
 google ile giriş ekle
 
-typesccript ve nextjs ekle
+typesccript ve nextjs entegre et projeye.
 
-redux
+redux öğren
